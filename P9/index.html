@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Responsive navbar and card grid using Flexbox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <a class="logo" href="#top">Aryan</a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="top">
+        <h1>Responsive Layout with Flexbox</h1>
+        <p>Pesize the browser window to see the navbar and cards adapt.</p>
+    </section>
+
+    <main>
+        <section id="about" class="panel">
+            <h2>About</h2>
+            <p>This page uses Flexbox for the navigation bar and the card layout.</p>
+        </section>
+        <section id="projects" class="panel">
+            <h2>Projects</h2>
+            <div class="card">
+                <article class="card">
+                    <h3>LogMind AI</h3>
+                    <p>Thousands of logs.One clear signal.</p>
+                    <a href="https://logmind-ai.web.app/" class="btn">LogMind Ai</a>
+                </article>
+
+                <article class="card">
+                    <h3>TimeTable</h3>
+                    <p>A web app for creating and managing timetables.</p>
+                    <a href="https://timetable-app-3218e.web.app/" class="btn">TimeTable</a>
+                </article>
+
+                <article class="card">
+                    <h3>Tripzy</h3>
+                    <p>A web app that helps travellers plan their trips.</p>
+                    <a href="https://tripzy-aryan-2026.web.app/" class="btn">Tripzy</a>
+                </article>
+        </section>
+        <section id="skills" class="panel">
+            <h2>Skills</h2>
+            <ul class="tags">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Flexbox</li>
+                <li>Github</li>
+                <li>Terminal</li>
+            </ul>
+        </section>
+        <section id="contact" class="panel">
+            <h2>Contact</h2>
+            <p>
+                Email: <a href="mailto:patelaryan0040@gmail.com">patelaryan0040@gmail.com</a>
+                Github: <a href="https://github.com/XYZ-4444" target="_blank">github.com/XYZ-4444</a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Aryan Patel. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
