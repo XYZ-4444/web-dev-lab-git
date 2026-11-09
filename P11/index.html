@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Web Dev Times - Newspaper Layout with CSS Grid</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="paper">
+
+    <!-- ===== MASTHEAD ===== -->
+    <header class="masthead">
+      <p class="masthead-meta">Vol. 1 &bull; Monday, 9 November 2026 &bull; Price: Free</p>
+      <h1>The Web Dev Times</h1>
+      <p class="tagline">All the news that fits in a CSS Grid</p>
+    </header>
+
+    <nav class="paper-nav" aria-label="Sections">
+      <ul>
+        <li><a href="#top-story">Top Story</a></li>
+        <li><a href="#tech">Technology</a></li>
+        <li><a href="#opinion">Opinion</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- ===== THREE-COLUMN GRID ===== -->
+    <main class="newspaper">
+
+      <!-- Featured story: spans 2 columns -->
+      <article class="story story-featured" id="top-story">
+        <p class="kicker">Top Story</p>
+        <h2>Students Learn CSS Grid and Build Their First Newspaper Page</h2>
+        <p class="byline">By Aryan Patel</p>
+        <div class="story-text">
+          <p>
+            CSS Grid is a two-dimensional layout system. It lets developers
+            control rows and columns at the same time, which makes it a perfect
+            tool for magazine and newspaper style pages.
+          </p>
+          <p>
+            In this practical, a three-column layout is created with
+            <code>grid-template-columns</code>. The main story spans two
+            columns, while smaller stories fill the remaining space. When the
+            screen becomes smaller, the grid reduces to two columns and then
+            to a single column.
+          </p>
+          <p>
+            Newspaper-style text flow is added with the CSS
+            <code>column-count</code> property, so a long paragraph is divided
+            into neat columns, just like in a printed paper.
+          </p>
+        </div>
+      </article>
+
+      <!-- Sidebar: spans 2 rows -->
+      <aside class="story story-sidebar">
+        <h2>In Brief</h2>
+        <ul>
+          <li><strong>Flexbox</strong> is best for one-dimensional layouts.</li>
+          <li><strong>Grid</strong> is best for two-dimensional layouts.</li>
+          <li><strong>fr</strong> units share the free space in a grid.</li>
+          <li><strong>gap</strong> adds space between rows and columns.</li>
+        </ul>
+      </aside>
+
+      <article class="story" id="tech">
+        <p class="kicker">Technology</p>
+        <h3>Responsive Design Is Now the Default</h3>
+        <p class="byline">By the Tech Desk</p>
+        <p>
+          Every modern website must work on phones, tablets and desktops.
+          Media queries help the layout change at the right moment.
+        </p>
+      </article>
+
+      <article class="story">
+        <p class="kicker">Education</p>
+        <h3>Git Becomes a Daily Habit for Learners</h3>
+        <p class="byline">By the Campus Desk</p>
+        <p>
+          Branches, commits and tags help students save their work and
+          explain what they changed.
+        </p>
+      </article>
+
+      <article class="story" id="opinion">
+        <p class="kicker">Opinion</p>
+        <h3>Why Every Student Needs a Portfolio</h3>
+        <p class="byline">By Aryan Patel</p>
+        <p>
+          A portfolio shows real work. It is the best proof of what a
+          student can build, and it keeps growing with every practical.
+        </p>
+      </article>
+
+      <!-- Wide quote: spans all 3 columns -->
+      <blockquote class="story story-quote">
+        Good layout is not decoration. It is how readers find what matters.
+      </blockquote>
+
+      <article class="story">
+        <p class="kicker">Design</p>
+        <h3>Typography Matters More Than Colour</h3>
+        <p class="byline">By the Design Desk</p>
+        <p>
+          A clear type scale and a comfortable line height make long text
+          easy to read on any screen.
+        </p>
+      </article>
+
+      <article class="story">
+        <p class="kicker">Projects</p>
+        <h3>Logmind AI, Tripzy and TimeTable Go Live</h3>
+        <p class="byline">By Aryan Patel</p>
+        <p>
+          Three student projects now have their own pages, each one built
+          with semantic HTML and clean CSS.
+        </p>
+      </article>
+
+      <article class="story">
+        <p class="kicker">Sports</p>
+        <h3>Developers Win the Debugging Marathon</h3>
+        <p class="byline">By the Sports Desk</p>
+        <p>
+          After many console logs and a lot of coffee, the final bug was
+          found in a missing semicolon.
+        </p>
+      </article>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="paper-footer" id="contact">
+      <p>
+        Contact the editor:
+        <a href="mailto:patelaryan0040@gmail.com">patelaryan0040@gmail.com</a>
+        &bull;
+        <a href="https://github.com/XYZ-4444">github.com/XYZ-4444</a>
+      </p>
+      <p><small>&copy; 2026 Aryan Patel. P11 - CSS Grid newspaper layout.</small></p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
