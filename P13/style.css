@@ -1,0 +1,422 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --dark: #0f172a;
+  --flex-color: #0ea5e9;     /* blue = Flexbox */
+  --grid-color: #f59e0b;     /* amber = Grid */
+  --radius: 14px;
+  --shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: var(--primary);
+}
+
+h2 {
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+h3 {
+  margin: 18px 0 8px;
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  color: #fff;
+}
+
+.badge-flex { background: var(--flex-color); }
+.badge-grid { background: var(--grid-color); color: #1e293b; }
+.badge-both { background: var(--primary); }
+
+/* =====================================================
+   PAGE LAYOUT: GRID (two dimensions at once)
+   ===================================================== */
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "header  header"
+    "nav     nav"
+    "main    sidebar"
+    "footer  footer";
+  gap: 0 30px;
+}
+
+.page-header  { grid-area: header; }
+.page-nav     { grid-area: nav; }
+.page-main    { grid-area: main; }
+.page-sidebar { grid-area: sidebar; }
+.page-footer  { grid-area: footer; }
+
+/* Keep main and sidebar away from the screen edges */
+.page-main    { padding: 30px 0 40px 20px; }
+.page-sidebar { padding: 30px 20px 40px 0; }
+
+/* =====================================================
+   HEADER: FLEXBOX
+   ===================================================== */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 36px 40px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+}
+
+.brand-mark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.header-note {
+  opacity: 0.9;
+}
+
+/* =====================================================
+   NAV: FLEXBOX
+   ===================================================== */
+.page-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--dark);
+}
+
+.page-nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+}
+
+.page-nav a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 6px 18px;
+  border-radius: 999px;
+  transition: background 0.25s, color 0.25s;
+}
+
+.page-nav a:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* =====================================================
+   MAIN CONTENT
+   ===================================================== */
+.page-main {
+  display: flex;               /* stack the panels vertically: one direction = Flexbox */
+  flex-direction: column;
+  gap: 24px;
+}
+
+.panel {
+  background: var(--card);
+  padding: 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.intro,
+.note {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* ---------- Rule cards: GRID ---------- */
+.rules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.rule {
+  padding: 18px;
+  border-radius: 12px;
+  border-top: 5px solid;
+  background: #f8fafc;
+}
+
+.rule-flex { border-color: var(--flex-color); }
+.rule-grid { border-color: var(--grid-color); }
+
+.rule h3 {
+  margin: 10px 0 6px;
+}
+
+/* ---------- Side-by-side demo ---------- */
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Flexbox version: items grow to fill each line */
+.demo-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.demo-flex .item {
+  flex: 1 1 140px;
+  background: var(--flex-color);
+}
+
+/* Grid version: items stay on the column lines */
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.demo-grid .item {
+  background: var(--grid-color);
+  color: #1e293b;
+}
+
+/* ---------- Comparison table ---------- */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  background: #eef2ff;
+  color: var(--primary-dark);
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* ---------- Nested example: GRID outside, FLEXBOX inside ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;                  /* card is a column flexbox */
+  flex-direction: column;
+  padding: 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  color: var(--primary-dark);
+}
+
+.card p {
+  flex: 1;                        /* text takes the free space, so footers line up */
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.card-footer {
+  display: flex;                  /* tags on the left, button on the right */
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tags li {
+  background: #eef2ff;
+  color: var(--primary-dark);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.btn {
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 999px;
+  transition: background 0.25s;
+}
+
+.btn:hover {
+  background: var(--primary-dark);
+}
+
+/* =====================================================
+   SIDEBAR: FLEXBOX column
+   ===================================================== */
+.page-sidebar {
+  align-self: start;
+}
+
+.page-sidebar > * {
+  background: var(--card);
+}
+
+.page-sidebar {
+  position: sticky;
+  top: 60px;
+}
+
+.guide {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.guide li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 12px;
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  font-size: 0.95rem;
+}
+
+/* =====================================================
+   FOOTER: FLEXBOX
+   ===================================================== */
+.page-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 30px 20px;
+  background: var(--dark);
+  color: #cbd5e1;
+  text-align: center;
+}
+
+.page-footer a {
+  color: #a5b4fc;
+  text-decoration: none;
+  margin: 0 6px;
+}
+
+.page-footer a:hover {
+  color: #fff;
+}
+
+.page-footer small {
+  color: var(--muted);
+}
+
+/* =====================================================
+   RESPONSIVE: change the grid AREAS, not the HTML
+   ===================================================== */
+@media (max-width: 850px) {
+
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "sidebar"
+      "footer";
+    gap: 0;
+  }
+
+  .page-main {
+    padding: 24px 16px 12px;
+  }
+
+  .page-sidebar {
+    position: static;
+    padding: 0 16px 30px;
+  }
+
+  .page-header {
+    padding: 28px 20px;
+  }
+}

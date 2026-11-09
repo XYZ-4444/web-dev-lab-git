@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choosing Between Flexbox and Grid</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- PAGE LAYOUT = GRID (2D: rows and columns together) -->
+  <div class="page">
+
+    <!-- Header = FLEXBOX (one row of items) -->
+    <header class="page-header">
+      <div class="brand">
+        <span class="brand-mark">A</span>
+        <h1>Flexbox + Grid</h1>
+      </div>
+      <p class="header-note"><span class="badge badge-flex">Flexbox</span> header row</p>
+    </header>
+
+    <!-- Nav = FLEXBOX -->
+    <nav class="page-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="#rules">Rules</a></li>
+        <li><a href="#demo">Live Demo</a></li>
+        <li><a href="#table">Comparison</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main class="page-main">
+
+      <section id="rules" class="panel">
+        <h2>Rule of Thumb</h2>
+        <div class="rules">
+          <article class="rule rule-flex">
+            <span class="badge badge-flex">Flexbox</span>
+            <h3>Content decides the layout</h3>
+            <p>Use it for <strong>one direction</strong>: a row of buttons, a navbar, tags, or the inside of a card.</p>
+          </article>
+          <article class="rule rule-grid">
+            <span class="badge badge-grid">Grid</span>
+            <h3>Layout decides the content</h3>
+            <p>Use it for <strong>rows and columns together</strong>: page structure, galleries and dashboards.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="demo" class="panel">
+        <h2>Same Items, Two Layouts</h2>
+        <p class="intro">
+          Both demos contain 5 identical items. Resize the window and watch the last row.
+        </p>
+
+        <h3><span class="badge badge-flex">Flexbox</span> flex: 1 1 140px</h3>
+        <div class="demo demo-flex">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+          <div class="item">5</div>
+        </div>
+        <p class="note">Items in the last row stretch to fill the line, so the columns do not line up.</p>
+
+        <h3><span class="badge badge-grid">Grid</span> repeat(auto-fill, minmax(140px, 1fr))</h3>
+        <div class="demo demo-grid">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+          <div class="item">5</div>
+        </div>
+        <p class="note">Every item stays on the same column lines, even in the last row.</p>
+      </section>
+
+      <section id="table" class="panel">
+        <h2>Which One Should I Use?</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Question</th>
+                <th>Flexbox</th>
+                <th>Grid</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dimensions</td>
+                <td>One (row or column)</td>
+                <td>Two (rows and columns)</td>
+              </tr>
+              <tr>
+                <td>Starts from</td>
+                <td>Content</td>
+                <td>Layout</td>
+              </tr>
+              <tr>
+                <td>Best for</td>
+                <td>Navbar, buttons, card insides</td>
+                <td>Page layout, galleries</td>
+              </tr>
+              <tr>
+                <td>Last row alignment</td>
+                <td>Items stretch or float</td>
+                <td>Stays on the grid lines</td>
+              </tr>
+              <tr>
+                <td>Overlapping items</td>
+                <td>Not natural</td>
+                <td>Easy with grid areas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Nesting: Grid Outside, Flexbox Inside</h2>
+        <!-- Cards in a GRID -->
+        <div class="cards">
+          <article class="card">
+            <h3>Logmind AI</h3>
+            <p>Thousands of logs. One clear signal.</p>
+            <!-- Tags and button row = FLEXBOX -->
+            <div class="card-footer">
+              <ul class="tags"><li>HTML</li><li>CSS</li></ul>
+              <a href="https://logmind-ai.web.app/" class="btn">View</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Tripzy</h3>
+            <p>A web app that helps travellers plan their trips and save time.</p>
+            <div class="card-footer">
+              <ul class="tags"><li>HTML</li><li>CSS</li></ul>
+              <a href="https://tripzy-aryan-2026.web.app/" class="btn">View</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>TimeTable</h3>
+            <p>A web app that helps students organize their schedule.</p>
+            <div class="card-footer">
+              <ul class="tags"><li>HTML</li><li>CSS</li></ul>
+              <a href="https://timetable-app-3218e.web.app/" class="btn">View</a>
+            </div>
+          </article>
+        </div>
+        <p class="note">
+          <span class="badge badge-grid">Grid</span> places the cards.
+          <span class="badge badge-flex">Flexbox</span> aligns the tags and the button inside each card.
+        </p>
+      </section>
+
+    </main>
+
+    <!-- Sidebar = FLEXBOX column -->
+    <aside class="page-sidebar">
+      <h2>Quick Guide</h2>
+      <ul class="guide">
+        <li>
+          <span class="badge badge-flex">Flexbox</span>
+          <span>Navbar, toolbar, tags, buttons</span>
+        </li>
+        <li>
+          <span class="badge badge-grid">Grid</span>
+          <span>Page layout, gallery, dashboard</span>
+        </li>
+        <li>
+          <span class="badge badge-both">Both</span>
+          <span>Real websites use both</span>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Footer = FLEXBOX -->
+    <footer class="page-footer" id="contact">
+      <p>
+        <a href="mailto:patelaryan0040@gmail.com">patelaryan0040@gmail.com</a>
+        <span aria-hidden="true">&bull;</span>
+        <a href="https://github.com/XYZ-4444">github.com/XYZ-4444</a>
+      </p>
+      <p><small>&copy; 2026 Aryan Patel. P13 - Flexbox and Grid together.</small></p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
