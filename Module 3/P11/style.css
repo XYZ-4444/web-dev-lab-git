@@ -1,0 +1,259 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --paper: #faf7f0;          /* newspaper paper colour */
+  --ink: #1a1a1a;
+  --muted: #666666;
+  --line: #1a1a1a;
+  --accent: #8b0000;         /* dark red for kickers */
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: Georgia, "Times New Roman", serif;
+  --font-ui: "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #e7e2d5;
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  padding: 24px 16px;
+}
+
+a {
+  color: var(--accent);
+}
+
+code {
+  font-family: "Courier New", monospace;
+  background: #ece6d6;
+  padding: 1px 5px;
+}
+
+/* ---------- Paper ---------- */
+.paper {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 30px 36px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- Masthead ---------- */
+.masthead {
+  text-align: center;
+  padding-bottom: 12px;
+  border-bottom: 4px double var(--line);
+}
+
+.masthead-meta {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.masthead h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 8vw, 4.5rem);
+  line-height: 1.1;
+  margin: 8px 0;
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* ---------- Section nav ---------- */
+.paper-nav {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+
+.paper-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  padding: 10px 0;
+}
+
+.paper-nav a {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.paper-nav a:hover {
+  color: var(--accent);
+}
+
+/* =====================================================
+   THE GRID: three columns
+   ===================================================== */
+.newspaper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);   /* three equal columns */
+  gap: 0;                                  /* we draw the lines with borders */
+}
+
+/* Every story has a thin column rule and padding */
+.story {
+  padding: 16px 20px;
+  border-right: 1px solid #c9c3b3;
+  border-bottom: 1px solid #c9c3b3;
+}
+
+/* Featured story spans 2 columns */
+.story-featured {
+  grid-column: span 2;
+}
+
+/* Sidebar spans 2 rows (same height as featured + next row) */
+.story-sidebar {
+  grid-row: span 2;
+  background: #f1ecdd;
+}
+
+/* Quote spans all 3 columns */
+.story-quote {
+  grid-column: 1 / -1;                     /* from first to last line */
+  text-align: center;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-style: italic;
+  padding: 28px 40px;
+  border-top: 3px double var(--line);
+  border-bottom: 3px double var(--line);
+}
+
+/* ---------- Story typography ---------- */
+.kicker {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.story h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.story h3 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.byline {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.story p {
+  margin-bottom: 10px;
+}
+
+/* Newspaper text flow inside the featured story */
+.story-text {
+  column-count: 2;
+  column-gap: 28px;
+  column-rule: 1px solid #c9c3b3;
+}
+
+.story-text p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* First letter drop cap */
+.story-text p:first-child::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.9;
+  padding: 4px 8px 0 0;
+  font-weight: 700;
+}
+
+/* Sidebar list */
+.story-sidebar ul {
+  list-style: none;
+}
+
+.story-sidebar li {
+  padding: 10px 0;
+  border-bottom: 1px dotted #aaa;
+}
+
+/* ---------- Footer ---------- */
+.paper-footer {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 4px double var(--line);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+}
+
+.paper-footer p {
+  margin-bottom: 4px;
+}
+
+.paper-footer small {
+  color: var(--muted);
+}
+
+/* =====================================================
+   RESPONSIVE: 3 columns -> 2 columns -> 1 column
+   ===================================================== */
+@media (max-width: 900px) {
+
+  .newspaper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .story-featured {
+    grid-column: 1 / -1;                   /* featured takes the full width */
+  }
+
+  .story-sidebar {
+    grid-row: auto;                        /* no more row spanning */
+  }
+}
+
+@media (max-width: 600px) {
+
+  .paper {
+    padding: 20px 16px;
+  }
+
+  .newspaper {
+    grid-template-columns: 1fr;
+  }
+
+  .story {
+    border-right: none;
+  }
+
+  .story-text {
+    column-count: 1;                       /* single text column on phones */
+  }
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design tokens and typography system in CSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Design tokens and typography system</h1>
+        <p class="lead">A small style guide built with CSS custom properties.</p>
+    </header>
+
+    <main>
+
+        <section id="colors">
+            <h2>Color Tokens</h2>
+            <ul class="swatches">
+                <li class="swatch-primary">Primary</li>
+                <li class="swatch-secondary">Secondary</li>
+                <li class="swatch-accent">Accent</li>
+                <li class="swatch-background">Background</li>
+                <li class="swatch-text">Text</li>
+            </ul>
+        </section>
+
+        <section id="typography">
+            <h2>Typography Scale</h2>
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+        </section>
+
+        <section id="inline-elements">
+            <h2>Text Style</h2>
+            <p>This is <strong>strong text</strong>,<em>emphasized text</em>, <mark>Highlighted text</mark>,
+                <code>inline code</code> and
+                <a href="#">a link</a>.
+            </p>
+            <blockquote>
+                Design is not just what it looks like and feels like. Design is how it works.
+                <cite>Steve Jobs</cite>
+            </blockquote>
+            <pre><code>:root: {
+            --primary-color: #4f46e5;
+                }</code></pre>
+        </section>
+
+        <section id="lists">
+            <h2>Lists</h2>
+            <ul>
+                <li>Unordered list item 1</li>
+                <li>Unordered list item 2</li>
+                <li>Unordered list item 3</li>
+            </ul>
+
+            <ol>
+                <li>Ordered list item 1</li>
+                <li>Ordered list item 2</li>
+                <li>Ordered list item 3</li>
+            </ol>
+
+            <dl>
+                <dt>Definition Term 1</dt>
+                <dd>Definition Description 1</dd>
+                <dt>Definition Term 2</dt>
+                <dd>Definition Description 2</dd>
+            </dl>
+        </section>
+
+        <section id="spacing">
+            <h2>Spacing</h2>
+            <div class="spacing-demo">
+                <span class="space space-1">8px</span>
+                <span class="space space-2">16px</span>
+                <span class="space space-3">24px</span>
+            </div>
+            <p>
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-outline">Outline Button</button>
+            </p>
+        </section>
+
+    </main>
+
+    <footer id="contact">
+        <h2>Contact</h2>
+        <address>
+            Email: <a href="mailto:patelaryan0040@gmail.com">patelaryan0040@gmail.com</a>
+            Github: <a href="https://github.com/XYZ-4444">github.com/XYZ-4444</a>
+        </address>
+        <p><small>&copy; 2026 Aryan. All rights reserved.</small></p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --radius: 14px;
+  --shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+a {
+  color: var(--primary);
+}
+
+/* ---------- Navbar (Flexbox) ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;                    /* flex container */
+  justify-content: space-between;   /* logo left, links right */
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 14px 40px;
+  background: #0f172a;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-links ul {
+  list-style: none;
+  display: flex;                    /* links in a row */
+  gap: 8px;
+}
+
+.nav-links a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: background 0.25s, color 0.25s;
+}
+
+.nav-links a:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Hamburger is hidden on desktop */
+.menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  margin-bottom: 8px;
+}
+
+.hero p {
+  opacity: 0.85;
+}
+
+/* ---------- Main layout ---------- */
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: flex;                    /* stack sections with flexbox */
+  flex-direction: column;
+  gap: 24px;
+}
+
+.panel {
+  background: var(--card);
+  padding: 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.panel h2 {
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+
+/* ---------- Card grid (Flexbox) ---------- */
+.cards {
+  display: flex;
+  flex-wrap: wrap;                  /* cards move to next row */
+  gap: 20px;
+}
+
+.card {
+  flex: 1 1 280px;                  /* grow, shrink, min width 280px */
+  display: flex;
+  flex-direction: column;           /* so the button stays at the bottom */
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.15);
+}
+
+.card h3 {
+  color: var(--primary-dark);
+  margin-bottom: 6px;
+}
+
+.card p {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.btn {
+  margin-top: auto;                 /* pushes button to the bottom of the card */
+  align-self: flex-start;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 999px;
+  transition: background 0.25s;
+}
+
+.btn:hover {
+  background: var(--primary-dark);
+}
+
+/* ---------- Skill tags (Flexbox) ---------- */
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags li {
+  background: #eef2ff;
+  color: var(--primary-dark);
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 999px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--muted);
+}
+
+/* ---------- Responsive: tablet and mobile ---------- */
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 14px 20px;
+  }
+
+  .menu-icon {
+    display: flex;                  /* show hamburger */
+  }
+
+  .nav-links {
+    width: 100%;
+    max-height: 0;                  /* menu is closed */
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .nav-links ul {
+    flex-direction: column;         /* links stack vertically */
+    padding-top: 12px;
+  }
+
+  .nav-links a {
+    border-radius: 8px;
+  }
+
+  /* When the checkbox is checked, open the menu */
+  .menu-toggle:checked ~ .nav-links {
+    max-height: 300px;
+  }
+
+  /* Hamburger turns into an X */
+  .menu-toggle:checked + .menu-icon span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle:checked + .menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked + .menu-icon span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .panel {
+    padding: 20px;
+  }
+
+  .card {
+    flex-basis: 100%;               /* one card per row */
+  }
+}

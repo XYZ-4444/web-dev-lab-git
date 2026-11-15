@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sticky navbar and card overlay using CSS positioning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+    <header class="hero">
+        <h1>Aryan Patel</h1>
+        <p>Sticky navbar and card overlay using CSS positioning</p>
+    </header>
+
+    <nav class="navbar" arial-label="Main Navigation">
+        <a href="#top" class="logo">Aryan</a>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <p>Scroll down and watch the navigation bar stay at the top of the screen.
+                It uses <code>position: sticky</code>. The project cards below use
+                <code>relative</code> and <code>absolute</code> positioning to place
+                a badge and a hover overlay on top of each card.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="card-grid">
+                <article class="card">
+                    <div class="badge">New</div>
+                    <div class="overlay">
+                        <a href="#">View Project</a>
+                    </div>
+            </div>
+            <div class="card-body">
+                <h3>Logmind AI</h3>
+                <p>Thousands of logs, One clear signal.</p>
+            </div>
+            </article>
+
+             <div class="card-grid">
+                <article class="card">
+                    <div class="badge">New</div>
+                    <div class="overlay">
+                        <a href="#">View Project</a>
+                    </div>
+            </div>
+            <div class="card-body">
+                <h3>TimeTable</h3>
+                <p>A web app for creating and managing timetables.</p>
+            </div>
+            </article>
+
+             <div class="card-grid">
+                <article class="card">
+                    <div class="badge">New</div>
+                    <div class="overlay">
+                        <a href="#">View Project</a>
+                    </div>
+            </div>
+            <div class="card-body">
+                <h3>Tripzy</h3>
+                <p>A web app that helps travellers plan their trips.</p>
+            </div>
+            </article>
+
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:aryanpatel@example.com">aryanpatel@example.com</a>
+            Github: <a href="https://github.com/XYZ-4444" target="_blank">github.com/XYZ-4444</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Aryan Patel. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
