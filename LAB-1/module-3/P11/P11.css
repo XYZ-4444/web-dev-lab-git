@@ -1,0 +1,118 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background: #e5e5e5;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #111;
+}
+.page{
+  max-width:900px;
+  margin:20px auto;
+  background: #fff;
+  padding:16px;
+}
+.masthead{
+  text-align: center;
+  border-bottom:3px double #111;
+  padding-bottom:8px;
+}
+.masthead h1{
+  font-size:80px;
+  letter-spacing:6px;
+}
+.info{
+  display:flex;
+  justify-content: space-between;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  margin-top:6px;
+}
+.banner{
+  display: flex;
+  justify-content: space-between;
+  gap:16px;
+  background:#8e2c8f;
+  color:#fff;
+  padding:16px;
+  margin-top:12px;
+}
+.banner-left h2{
+  font-size: 36px;
+}
+.banner-right{
+  border-left:1pc solid #fff;
+  padding-left:16px;
+}
+.banner-right h3{
+  color:#f3d33c;
+}
+.strap{
+  font-size:26px;
+  padding:14px 0;
+  border-bottom:1px solid #999;
+}
+.content{
+  display:grid;
+  grid-template-columns: 1fr 1.4fr 0.8fr;
+  gap: 16px;
+  margin-top:16px;
+}
+.main-story h1{
+  font-size:40px;
+  line-height:1.1px;
+  margin-bottom: 10px;
+  letter-spacing: normal;
+}
+.maiin-story h4{
+  margin-bottom:10px;
+  padding-bottom: 8px;
+  border-bottom:1px soild #999;
+}
+.side-story h2{
+  font-weight: normal;
+  font-size:26px;
+  margin-bottom:10px;
+  padding-bottom:8px;
+  border-bottom:1px solid #999;
+}
+.byline{
+  font-family:Arial, sans-serif;
+  font-size:12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+p{
+  font-size:14px;
+  line-height:1.4;
+  margin-bottom:8px;
+}
+.img-box{
+  height:380px;
+  background: #bbb;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  color:#555;
+  font-family:Arial, sans-serif;
+}
+
+figcaption{
+  font-family: Arial, sans-serif;
+  font-size:11px;
+  margin-top: 4px;
+}.page .main-story h1 {
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  margin-bottom: 10px;
+}
+
+.page .banner-right {
+  border-left: 1px solid #fff;
+  padding-left: 16px;
+  width: auto;
+}
