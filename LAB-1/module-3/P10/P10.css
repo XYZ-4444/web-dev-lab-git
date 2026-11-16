@@ -23,12 +23,12 @@ html {
 body {
   font-family: "Inter", system-ui, -apple-system, "Segor UI", sans-serif;
   line-height: 1.6;
-  background: #060606;
+  background: #000000;
   color: #222;
 }
 
 ul {
-  list-style: none
+  list-style: none;
 }
 
 a {
