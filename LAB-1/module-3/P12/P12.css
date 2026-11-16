@@ -1,4 +1,3 @@
-/* ---------- Design tokens ---------- */
 :root {
   --bg: #f1f5f9;
   --card: #ffffff;
@@ -11,7 +10,6 @@
   --shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
 }
 
-/* ---------- Base ---------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -37,9 +35,6 @@ a {
   color: var(--primary);
 }
 
-/* =====================================================
-   PAGE LAYOUT: grid-template-areas
-   ===================================================== */
 .page {
   min-height: 100vh;
   display: grid;
@@ -57,9 +52,8 @@ a {
 .page-main   { grid-area: main; }
 .page-footer { grid-area: footer; }
 
-/* ---------- Header ---------- */
 .page-header {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   color: #fff;
   text-align: center;
   padding: 60px 20px;
@@ -73,7 +67,6 @@ a {
   opacity: 0.85;
 }
 
-/* ---------- Nav ---------- */
 .page-nav {
   position: sticky;
   top: 0;
@@ -103,9 +96,7 @@ a {
   color: #fff;
 }
 
-/* =====================================================
-   MAIN: projects (flexible) + sidebar (fixed width)
-   ===================================================== */
+
 .page-main {
   width: 100%;
   max-width: 1200px;
@@ -123,19 +114,16 @@ a {
   margin-bottom: 16px;
 }
 
-/* =====================================================
-   PROJECT GRID (advanced)
-   ===================================================== */
+
 .project-grid {
   display: grid;
-  /* responsive without media queries */
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   grid-auto-rows: minmax(150px, auto);
-  grid-auto-flow: dense;                    /* fill empty holes */
+  grid-auto-flow: dense;                  
   gap: 20px;
 }
 
-/* Each card is itself a grid with 2 rows: thumbnail + info */
+
 .project {
   display: grid;
   grid-template-rows: 140px 1fr;
@@ -151,19 +139,19 @@ a {
   box-shadow: 0 12px 28px rgba(79, 70, 229, 0.2);
 }
 
-/* Featured: 2 columns and 2 rows */
+
 .project-featured {
   grid-column: span 2;
   grid-row: span 2;
-  grid-template-rows: 1fr auto;             /* thumbnail grows taller */
+  grid-template-rows: 1fr auto;             
 }
 
-/* Wide: 2 columns */
+
 .project-wide {
   grid-column: span 2;
 }
 
-/* ---------- Thumbnails ---------- */
+
 .thumb {
   position: relative;
 }
@@ -171,10 +159,7 @@ a {
 .thumb-1 { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
 .thumb-2 { background: linear-gradient(135deg, #06b6d4, #3b82f6); }
 .thumb-3 { background: linear-gradient(135deg, #f59e0b, #ef4444); }
-.thumb-4 { background: linear-gradient(135deg, #10b981, #059669); }
-.thumb-5 { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
-.thumb-6 { background: linear-gradient(135deg, #0ea5e9, #6366f1); }
-.thumb-7 { background: linear-gradient(135deg, #64748b, #1e293b); }
+
 
 .tag {
   position: absolute;
@@ -188,10 +173,10 @@ a {
   border-radius: 999px;
 }
 
-/* ---------- Card info: a nested grid ---------- */
+
 .project-info {
   display: grid;
-  grid-template-rows: auto 1fr auto auto;   /* title | text | tags | button */
+  grid-template-rows: auto 1fr auto auto;   
   gap: 8px;
   padding: 18px;
 }
@@ -205,7 +190,7 @@ a {
   font-size: 0.95rem;
 }
 
-/* Tech stack badges */
+
 .stack {
   display: flex;
   flex-wrap: wrap;
@@ -222,7 +207,7 @@ a {
 }
 
 .btn {
-  justify-self: start;                      /* do not stretch across the grid cell */
+  justify-self: start;                    
   margin-top: 6px;
   background: var(--primary);
   color: #fff;
@@ -237,9 +222,7 @@ a {
   background: var(--primary-dark);
 }
 
-/* =====================================================
-   SIDEBAR
-   ===================================================== */
+
 .sidebar {
   position: sticky;
   top: 70px;
@@ -262,14 +245,14 @@ a {
   border-radius: 10px;
 }
 
-/* ---------- Footer ---------- */
+
 .page-footer {
   background: var(--dark);
   color: #cbd5e1;
   text-align: center;
   padding: 30px 20px;
   display: grid;
-  place-content: center;                    /* centers the content both ways */
+  place-content: center;                    
   gap: 6px;
 }
 
@@ -286,13 +269,11 @@ a {
   color: var(--muted);
 }
 
-/* =====================================================
-   RESPONSIVE (only the page layout needs media queries)
-   ===================================================== */
+
 @media (max-width: 800px) {
 
   .page-main {
-    grid-template-columns: minmax(0, 1fr);   /* sidebar moves below projects */
+    grid-template-columns: minmax(0, 1fr);  
   }
 
   .sidebar {
@@ -302,7 +283,7 @@ a {
 
 @media (max-width: 520px) {
 
-  /* On very small screens, featured and wide cards fit 1 column */
+
   .project-featured,
   .project-wide {
     grid-column: span 1;

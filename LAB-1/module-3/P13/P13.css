@@ -1,4 +1,4 @@
-/* ---------- Design tokens ---------- */
+
 :root {
   --bg: #f1f5f9;
   --card: #ffffff;
@@ -7,13 +7,13 @@
   --primary: #4f46e5;
   --primary-dark: #3730a3;
   --dark: #0f172a;
-  --flex-color: #0ea5e9;     /* blue = Flexbox */
-  --grid-color: #f59e0b;     /* amber = Grid */
+  --flex-color: #0ea5e9;    
+  --grid-color: #f59e0b;     
   --radius: 14px;
   --shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
 }
 
-/* ---------- Base ---------- */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -49,7 +49,7 @@ h3 {
   margin: 18px 0 8px;
 }
 
-/* ---------- Badges ---------- */
+
 .badge {
   display: inline-block;
   font-size: 0.75rem;
@@ -63,9 +63,7 @@ h3 {
 .badge-grid { background: var(--grid-color); color: #1e293b; }
 .badge-both { background: var(--primary); }
 
-/* =====================================================
-   PAGE LAYOUT: GRID (two dimensions at once)
-   ===================================================== */
+
 .page {
   min-height: 100vh;
   display: grid;
@@ -85,13 +83,11 @@ h3 {
 .page-sidebar { grid-area: sidebar; }
 .page-footer  { grid-area: footer; }
 
-/* Keep main and sidebar away from the screen edges */
+
 .page-main    { padding: 30px 0 40px 20px; }
 .page-sidebar { padding: 30px 20px 40px 0; }
 
-/* =====================================================
-   HEADER: FLEXBOX
-   ===================================================== */
+
 .page-header {
   display: flex;
   justify-content: space-between;
@@ -129,9 +125,7 @@ h3 {
   opacity: 0.9;
 }
 
-/* =====================================================
-   NAV: FLEXBOX
-   ===================================================== */
+
 .page-nav {
   position: sticky;
   top: 0;
@@ -161,11 +155,9 @@ h3 {
   color: #fff;
 }
 
-/* =====================================================
-   MAIN CONTENT
-   ===================================================== */
+
 .page-main {
-  display: flex;               /* stack the panels vertically: one direction = Flexbox */
+  display: flex;               
   flex-direction: column;
   gap: 24px;
 }
@@ -183,7 +175,7 @@ h3 {
   margin-top: 8px;
 }
 
-/* ---------- Rule cards: GRID ---------- */
+
 .rules {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -204,7 +196,7 @@ h3 {
   margin: 10px 0 6px;
 }
 
-/* ---------- Side-by-side demo ---------- */
+
 .item {
   display: flex;
   justify-content: center;
@@ -215,7 +207,7 @@ h3 {
   color: #fff;
 }
 
-/* Flexbox version: items grow to fill each line */
+
 .demo-flex {
   display: flex;
   flex-wrap: wrap;
@@ -227,7 +219,6 @@ h3 {
   background: var(--flex-color);
 }
 
-/* Grid version: items stay on the column lines */
 .demo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -239,7 +230,7 @@ h3 {
   color: #1e293b;
 }
 
-/* ---------- Comparison table ---------- */
+
 .table-wrap {
   overflow-x: auto;
 }
@@ -265,7 +256,7 @@ tbody tr:hover {
   background: #f8fafc;
 }
 
-/* ---------- Nested example: GRID outside, FLEXBOX inside ---------- */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -273,7 +264,7 @@ tbody tr:hover {
 }
 
 .card {
-  display: flex;                  /* card is a column flexbox */
+  display: flex;                  
   flex-direction: column;
   padding: 18px;
   background: #f8fafc;
@@ -287,13 +278,13 @@ tbody tr:hover {
 }
 
 .card p {
-  flex: 1;                        /* text takes the free space, so footers line up */
+  flex: 1;                       
   color: var(--muted);
   margin-bottom: 14px;
 }
 
 .card-footer {
-  display: flex;                  /* tags on the left, button on the right */
+  display: flex;                  
   justify-content: space-between;
   align-items: center;
   gap: 8px;
@@ -328,9 +319,7 @@ tbody tr:hover {
   background: var(--primary-dark);
 }
 
-/* =====================================================
-   SIDEBAR: FLEXBOX column
-   ===================================================== */
+
 .page-sidebar {
   align-self: start;
 }
@@ -362,9 +351,7 @@ tbody tr:hover {
   font-size: 0.95rem;
 }
 
-/* =====================================================
-   FOOTER: FLEXBOX
-   ===================================================== */
+
 .page-footer {
   display: flex;
   flex-direction: column;
@@ -390,33 +377,3 @@ tbody tr:hover {
   color: var(--muted);
 }
 
-/* =====================================================
-   RESPONSIVE: change the grid AREAS, not the HTML
-   ===================================================== */
-@media (max-width: 850px) {
-
-  .page {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto;
-    grid-template-areas:
-      "header"
-      "nav"
-      "main"
-      "sidebar"
-      "footer";
-    gap: 0;
-  }
-
-  .page-main {
-    padding: 24px 16px 12px;
-  }
-
-  .page-sidebar {
-    position: static;
-    padding: 0 16px 30px;
-  }
-
-  .page-header {
-    padding: 28px 20px;
-  }
-}
