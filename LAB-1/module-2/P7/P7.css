@@ -58,11 +58,22 @@ aside:hover {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.name{
   margin-bottom: 10px;
   color: var(--accent);
   border-left: 4 px solid var(--accent);
   padding-left: 12px;
+  font-size: 30px;
+  font-weight: 600;
+}
+#typography h1,
+#typography h2,
+#typography h3,
+#typography h4,
+#typography h5,
+#typography h6
+{
+  color:black;
 }
 
 a {
